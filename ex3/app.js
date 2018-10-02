@@ -1,15 +1,18 @@
 new Vue({
   el: '#exercise',
   data: {
-    value: 0,
-    result: "not there yet"
+    value: 0
   },
-  watch: {
-    value: function(val) {
-      if (val == 37) {
-        this.result = "done";
+  computed: {
+    result: function() {
+      if (this.value == 37) {
+        return "done";
+      } else {
+        return "not there yet"
       }
     },
+  },
+  watch: {
     result: function(val) {
       var original = this;
       setTimeout(function() { original.value = 0 } , 5000)
